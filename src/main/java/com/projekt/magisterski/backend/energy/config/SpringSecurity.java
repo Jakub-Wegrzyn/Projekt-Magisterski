@@ -82,8 +82,8 @@ public class SpringSecurity {
     @Bean
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtp.gmail.com");
-        mailSender.setPort(587);
+        mailSender.setHost("XXXXXXXXX");
+        mailSender.setPort(XXXXX);
 
         mailSender.setUsername(emailUsername);
         mailSender.setPassword(emailPassword);
@@ -97,3 +97,4 @@ public class SpringSecurity {
         return mailSender;
     }
 }
+
