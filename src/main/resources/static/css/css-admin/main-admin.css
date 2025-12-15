@@ -1,0 +1,28 @@
+thead {
+    background-color: #d4e4f7;
+    color: #000;
+}
+.bg-custom-color {
+    background-color: #001f3f;
+    color: #ffffff;
+    font-weight: bold;
+}
+.nav-link {
+    margin-right: 50px;
+    font-size: 16px;
+}
+body{
+    background-color: #d4e4f7;
+}
+footer {
+    background-color: #001f3f;
+    color: #ffffff;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+footer a {
+    color: #FFFF00;
+    text-decoration: none;
+}

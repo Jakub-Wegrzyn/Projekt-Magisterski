@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Odczyty</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-... (checksum)" crossorigin="anonymous" />
+    <link rel="stylesheet" th:href="@{/css/css-admin/main-admin.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom-color">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/admin">
+            </i> Energy-admin <i class="fas fa-bolt"></i>
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/newcustomer">
+                        <i class="fas fa-user-plus"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/listofcustomers">
+                        <i class="fas fa-table"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/odczyty">
+                        <i class="fas fa-chart-line"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/faktury">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/logout">Wyloguj</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div th:if="${param.success}">
+                <div class="alert alert-info">Poprawiono dane!</div>
+            </div>
+            <div th:if="${param.failure}">
+                <div class="alert alert-info">Niepoprawiono danych!</div>
+            </div>
+
+            <h1>Popraw dane</h1>
+
+            <form th:action="@{'/odczyty/correctmeasure/' + ${singleMeasureId} + '/' + ${PPE}}" method="post" th:object="${energyUsageDtoWithPPE}">
+                <div class="form-group">
+                    <label class="control-label" for="id"> Id Pomiaru </label>
+                    <input id="id" class="form-control" th:field="${energyUsageDtoWithPPE.id}" readonly="readonly" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="PPE"> PPE </label>
+                    <input id="PPE" class="form-control" th:field="${energyUsageDtoWithPPE.PPE}" readonly="readonly" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="formattedDate"> Data i godzina </label>
+                    <input id="formattedDate" class="form-control" th:field="${energyUsageDtoWithPPE.formattedDate}" readonly="readonly" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="aPlus"> A+ </label>
+                    <input id="aPlus" class="form-control" th:field="${energyUsageDtoWithPPE.aPlus}" required autofocus="autofocus"  />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="aMinus"> A- </label>
+                    <input id="aMinus" class="form-control" th:field="${energyUsageDtoWithPPE.aMinus}" required autofocus="autofocus" />
+                </div>
+                <br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Popraw</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<footer>
+    <p>&copy; 2024 Energy <a href="/regulamin">Regulamin</a> <a href="/kontakt">Kontakt</a></p>
+</footer>
+</html>

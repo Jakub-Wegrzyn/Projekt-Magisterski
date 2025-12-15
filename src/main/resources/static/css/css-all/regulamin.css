@@ -1,0 +1,8 @@
+.regulamin_container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3vh;
+    margin-bottom: 10vh;
+    text-align: left;
+}

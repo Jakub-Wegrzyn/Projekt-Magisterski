@@ -1,0 +1,67 @@
+.table-container {
+    padding: 20px;
+}
+
+#google_pay_button {
+    align-items: center;
+}
+
+.centered-button {
+    position: fixed;
+    left: 50%;
+    bottom: 10vh;
+    transform: translateX(-50%);
+}
+
+#checkboxContainer {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#agreeToTermscheckbox {
+    margin-right: 10px;
+}
+
+.table-container {
+    height: 75vh;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+#download {
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 10px 17px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 90%;
+}
+
+#download:hover {
+    color: #000000;
+}
+
+#download:active {
+    background-color: black;
+    color: white;
+}
+
+.download-icon {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 500;
+    margin-right: 5px;
+}

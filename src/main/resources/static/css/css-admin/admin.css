@@ -1,0 +1,33 @@
+#icon-panel-1 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 15vh;
+    gap: 60vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
+}
+#icon-panel-2 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 25vh;
+    gap: 60vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
+}
+
+.fa-user-plus, .fa-table, .fa-chart-line, .fa-money-bill-wave{
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #001f3f;
+    text-decoration: none;
+    font-size: 28vh;
+}
+.fa-user-plus:hover, .fa-table:hover, .fa-chart-line:hover, .fa-money-bill-wave:hover {
+    color: #6495ED;
+}

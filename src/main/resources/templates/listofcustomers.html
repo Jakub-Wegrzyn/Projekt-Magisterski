@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Odczyty</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-... (checksum)" crossorigin="anonymous" />
+    <link rel="stylesheet" th:href="@{/css/css-admin/main-admin.css}"/>
+    <link rel="stylesheet" th:href="@{/css/css-admin/listofcustomers.css}"/>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script th:src = "@{/js/js-admin/listofcustomers.js}"> </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom-color">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/admin">
+            </i> Energy-admin <i class="fas fa-bolt"></i>
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/newcustomer">
+                        <i class="fas fa-user-plus"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/listofcustomers">
+                        <i class="fas fa-table"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/odczyty">
+                        <i class="fas fa-chart-line"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/faktury">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/logout">Wyloguj</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid-2">
+    <table class="table table-striped text-center align-middle">
+        <thead>
+        <tr>
+            <th scope="col" style="width: 8%;">Id</th>
+            <th scope="col" style="width: 11.1%;">Imię</th>
+            <th scope="col" style="width: 11.1%;">Nazwisko</th>
+            <th scope="col" style="width: 11.1%;">Data urodzenia</th>
+            <th scope="col" style="width: 11.1%;">Numer PPE</th>
+            <th scope="col" style="width: 9.1%;">Numer umowy</th>
+            <th scope="col" style="width: 20.1%;">Email</th>
+            <th scope="col" style="width: 9.1%;">Prosument</th>
+            <th scope="col" style="width: 11.1%;"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="customer : ${customers}">
+            <tr>
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.firstName}"></td>
+                <td th:text="${customer.lastName}"></td>
+                <td th:text="${customer.birthDate}"></td>
+                <td th:text="${customer.PPE}"></td>
+                <td th:text="${customer.contractNumber}"></td>
+                <td th:text="${customer.email}"></td>
+                <td th:text="${customer.prosument ? 'Tak' : 'Nie'}"></td>
+                <td class="d-flex flex-column">
+                    <button id="editButton" class="btn btn-primary btn-sm mb-2">Edytuj</button>
+                    <button id="deleteButton" class="btn btn-usun btn-sm">Usuń </button>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+<footer>
+    <p>&copy; 2024 Energy <a href="/regulamin">Regulamin</a> <a href="/kontakt">Kontakt</a></p>
+</footer>
+</html>
